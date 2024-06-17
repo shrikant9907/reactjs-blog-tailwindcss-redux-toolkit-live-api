@@ -8,13 +8,23 @@ const Posts = () => {
   const dispatch = useDispatch() // Redux  hook
   const allPosts = useSelector(state => state.blogPosts.posts) // Redux hook
 
-  const fetchPosts = async () => {
-    const response = await axios.get('https://dummyjson.com/posts'); // API integration using Fetch
-    if (response.status === 200) { // Checking the the status is 200 - Success
-      dispatch(setPosts(response.data.posts))
-    } else {
-      alert("Something went wrong with the blog posts API.")
-    }
+  // const fetchPosts = async () => {
+  //   const response = await axios.get('https://dummyjson.com/posts'); // API integration using Fetch
+  //   if (response.status === 200) { // Checking the the status is 200 - Success
+  //     dispatch(setPosts(response.data.posts))
+  //   } else {
+  //     alert("Something went wrong with the blog posts API.")
+  //   }
+  // }
+
+  const fetchPosts = () => {
+     axios.get('https://dummyjson.com/posts').then(response => {
+      if (response.status === 200) { 
+        dispatch(setPosts(response.data.posts))
+      } else {
+        alert("Something went wrong with the blog posts API.")
+      } 
+     })
   }
 
   useEffect(() => {
