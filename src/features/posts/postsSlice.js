@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const postsSlice = createSlice({
-  name: 'counter',
+  name: 'blogPosts',
   initialState,
   reducers: {
     setPosts: (state, action) => {

@@ -1,9 +1,11 @@
+import Posts from "./features/posts/posts"
+
  
 function App() { 
 
   return (
     <>
-    <p>App</p>
+     <Posts />
     </>
   )
 }
